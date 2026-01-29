@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Khaya Consultancy | Tax & Accounting Experts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #edf1f6;
+            color: #222;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(90deg, #041a3d, #7b0015);
+            padding: 10px 6%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logo-container img {
+            height: 64px;
+            width: auto;
+            border-radius: 0;
+            background: #ffffff;
+            padding: 4px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+            border: 2px solid rgba(0,0,0,0.06);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .logo-container span {
+            color: #000;
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            display: block;
+            text-align: center;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+            line-height: 1;
+        }
+
+        .logo-container span.red {
+            color: #b3001b;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.12s ease;
+        }
+
+        nav a:hover {
+            background: #b3001b;
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 30px 8%;
+            background: linear-gradient(135deg, #0a2a66, #b3001b);
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.45);
+            color: #fff;
+            line-height: 1.05;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 6px auto 0 auto;
+            color: #fff;
+            line-height: 1.45;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 12px 24px;
+            background: #ffffff;
+            color: #0a2a66;
+            font-weight: 600;
+            border-radius: 26px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.12s ease;
+        }
+
+        .hero-btn:hover {
+            background: #f1f1f1;
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTION ===== */
+        section {
+            padding: 50px 8%;
+            scroll-margin-top: 110px; /* offset for sticky header so anchors are not hidden */
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            color: #0a2a66;
+        }
+
+        /* Ensure anchored sections are visible below the sticky header */
+        #services,
+        #about,
+        #contact {
+            padding-top: 110px;
+            margin-top: -110px;
+        }
+
+        .section-line {
+            width: 80px;
+            height: 4px;
+            background: #b3001b;
+            margin: 0 auto 30px auto;
+            border-radius: 10px;
+        }
+
+        /* ===== SERVICES ===== */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px;
+            color: #fff;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(255,255,255,0.18), transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ===== CARD GRADIENTS ===== */
+        .accounting {
+            background: linear-gradient(135deg, #0a2a66, #b3001b);
+        }
+
+        .taxation {
+            background: linear-gradient(135deg, #081f4d, #c1121f);
+        }
+
+        .audit {
+            background: linear-gradient(135deg, #0b3c5d, #a4161a);
+        }
+
+        .secretarial {
+            background: linear-gradient(135deg, #102542, #8b0000);
+        }
+
+        /* ===== ABOUT ===== */
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: #f1f3f8;
+            border-radius: 25px;
+            padding: 50px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+
+        .contact p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .contact-icon {
+            font-size: 1.3rem;
+            color: #0a2a66;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #041a3d;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            nav a {
+                margin-left: 15px;
+            }
+
+            .logo-container span {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <a href="#">
+            <img src="logo.jpg" alt="Khaya Consultancy Logo">
+        </a>
+        <span>KHAYA</span><span class="red">CONSULTANCY</span>
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Professional Tax, Accounting & Advisory Services</h2>
+    <p>
+        Khaya Consultancy is a Zimbabwe-based professional firm providing reliable accounting,
+        taxation, audit, advisory, and corporate secretarial services to businesses and individuals.
+    </p>
+    <a href="#contact" class="hero-btn">Get Professional Assistance</a>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="section-line"></div>
+
+    <div class="cards">
+        <div class="card accounting">
+            <h3>Accounting</h3>
+            <p>Monthly Management Accounts</p>
+            <p>Financial Statements Preparation</p>
+            <p>Book Keeping Services</p>
+            <p>Subscription Accounts</p>
+        </div>
+
+        <div class="card taxation">
+            <h3>Taxation</h3>
+            <p>ITF 263 Tax Clearance Certificates</p>
+            <p>ZIMRA Returns & Submissions</p>
+            <p>PAYE & VAT Registration</p>
+            <p>Tax Health Checks & Compliance</p>
+        </div>
+
+        <div class="card audit">
+            <h3>Audit & Advisory</h3>
+            <p>Internal & External Audits</p>
+            <p>Assurance Services</p>
+            <p>Business & Financial Advisory</p>
+            <p>Project Management Services</p>
+        </div>
+
+        <div class="card secretarial">
+            <h3>Secretarial & Other Services</h3>
+            <p>Company Registration & Returns</p>
+            <p>ZIDA & PRAZ Compliance</p>
+            <p>Vendor Number & Bank Account Setup</p>
+            <p>Virtual Fiscalisation Services</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <h2>About Khaya Consultancy</h2>
+    <div class="section-line"></div>
+    <p>
+        Khaya Consultancy is committed to delivering high-quality professional services
+        with integrity, confidentiality, and compliance at the core of our operations.
+        We work closely with our clients to ensure financial clarity, regulatory compliance,
+        and sustainable business growth.
+    </p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <div class="section-line"></div>
+
+    <div class="contact">
+        <p><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span><strong>Address:</strong> 99 Robert Mugabe Street, Second Floor, Suite 203</p>
+        <p><span class="contact-icon"><i class="fas fa-phone"></i></span><strong>Phone:</strong> 0710 918 534</p>
+        <p><span class="contact-icon"><i class="fab fa-whatsapp"></i></span><strong>WhatsApp:</strong> 0719 999 896</p>
+        <p><span class="contact-icon"><i class="fas fa-envelope"></i></span><strong>Email:</strong> khayaconsultancy@gmail.com</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Khaya Consultancy. All Rights Reserved.</p>
+    <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;">Registered Consultancy • Serving SMEs & Corporates in Zimbabwe • Confidential • Compliant • Reliable</p>
+</footer>
+
+</body>
+</html>
